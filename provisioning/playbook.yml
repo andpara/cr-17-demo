@@ -1,7 +1,6 @@
 - name: Hello world
   hosts:
-    - all
-    - xubuntu-desktop
+    - VM1
   become: true
   tasks:
     - name: Print hello world
@@ -14,7 +13,7 @@
       user_access_sudo: true
 - name: VM1 software setup
   hosts:
-    - all
+    - VM1
   become: true
   tasks:
     - name: Install tools
