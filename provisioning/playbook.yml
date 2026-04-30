@@ -1,0 +1,27 @@
+- name: Hello world
+  hosts:
+    - all
+    - xubuntu-desktop
+  become: true
+  tasks:
+    - name: Print hello world
+      debug:
+        msg: Hello World
+  roles:
+    - role: user-access
+      user_access_username: user
+      user_access_password: Password123
+      user_access_sudo: true
+- name: VM1 software setup
+  hosts:
+    - all
+  become: true
+  tasks:
+    - name: Install tools
+      ansible.builtin.apt:
+        name:
+          - git
+          - g++
+          - jq
+        state: present
+        update_cache: 'yes'

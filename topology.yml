@@ -1,0 +1,43 @@
+name: xubuntu-noble-testing
+hosts:
+  - name: VM1
+    flavor: c4_r8_d40
+    base_box:
+      image: xubuntu-noble-x86_64
+      mgmt_user: ubuntu
+      mgmt_protocol: ssh
+    hidden: false
+  - name: VM2
+    flavor: c4_r8_d40
+    base_box:
+      image: xubuntu-noble-x86_64
+      mgmt_user: ubuntu
+      mgmt_protocol: ssh
+    hidden: false
+routers:
+  - name: router
+    flavor: standard.small
+    base_box:
+      image: debian-12-x86_64
+      mgmt_user: debian
+      mgmt_protocol: ssh
+    hidden: false
+networks:
+  - name: network
+    cidr: 10.0.0.0/24
+    accessible_by_user: false
+    hidden: false
+wan:
+  name: internet-connection
+  cidr: 10.10.10.0/24
+net_mappings:
+  - host: VM1
+    network: network
+    ip: 10.0.0.68
+  - host: VM2
+    network: network
+    ip: 10.0.0.35
+router_mappings:
+  - router: router
+    network: network
+    ip: 10.0.0.1
