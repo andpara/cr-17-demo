@@ -1,13 +1,13 @@
 name: xubuntu-noble-testing
 hosts:
-  - name: VM1
+  - name: vm1
     flavor: c4_r8_d40
     base_box:
       image: xubuntu-noble-x86_64
       mgmt_user: ubuntu
       mgmt_protocol: ssh
     hidden: false
-  - name: VM2
+  - name: vm2
     flavor: c4_r8_d40
     base_box:
       image: xubuntu-noble-x86_64
@@ -31,10 +31,10 @@ wan:
   name: internet-connection
   cidr: 10.10.10.0/24
 net_mappings:
-  - host: VM1
+  - host: vm1
     network: network
     ip: 10.0.0.68
-  - host: VM2
+  - host: vm2
     network: network
     ip: 10.0.0.35
 router_mappings:
