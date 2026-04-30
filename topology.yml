@@ -25,7 +25,6 @@ routers:
 networks:
   - name: network
     cidr: 10.0.0.0/24
-    accessible_by_user: false
     hidden: false
 wan:
   name: internet-connection
