@@ -1,4 +1,4 @@
-name: xubuntu-noble-testing
+name: cr-17
 hosts:
   - name: vm1
     flavor: c4_r8_d40
